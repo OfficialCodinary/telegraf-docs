@@ -1,6 +1,6 @@
-# Context and Middlewares in Telegraf
+# **Context and Middlewares in Telegraf**
 ---
-## Context
+## **Context**
 ### Overview
 In Telegraf, the `Context` represents the contextual information and utilities available to your bot when handling incoming updates from Telegram. It has the essential data related to the current update, such as the message, user information, and various methods for interacting with the Telegram Bot API.
 
@@ -22,6 +22,8 @@ The `Context` object typically contains the following key properties:
 - `leaveChat`: Instructs the bot to leave the current chat.
 
 Much more types of functions are available...
+
+
 ### Example Usage
 ```javascript
 bot.on('text', (ctx) => {
@@ -30,7 +32,7 @@ bot.on('text', (ctx) => {
   const senderUsername = ctx.from.username;
 
   // Replying to the received message
-  ctx.reply(`Hello, ${senderUsername}! You said: ${messageText}`);
+  ctx.reply(`Hello, @${senderUsername}!\nYou said: ${messageText}`);
 });
 ```
 
@@ -39,7 +41,7 @@ bot.on('text', (ctx) => {
 ## Middleware in Telegraf
 
 ### Overview
-Middleware functions in Telegraf are functions that intercept incoming updates before reaching the designated handlers. They provide a way to execute code logic universally across different commands or events, allowing for preprocessing or handling specific actions for all incoming updates.
+Middleware functions in Telegraf are functions that intercept incoming updates before reaching the handlers. They provide a way to execute code logic globally for a bot, allowing for preprocessing or handling specific actions for all incoming updates.
 
 ### Usage
 Middleware functions are added to the Telegraf bot using the `use` method. They can perform various tasks like logging, authentication, modifying the context, or any other custom logic required for processing incoming updates.
@@ -68,6 +70,11 @@ bot.on('text', (ctx) => {
 - Middleware functions in Telegraf take two arguments: `ctx` (Context) and `next` (a function to call the next middleware or handler in line).
 - Order matters when applying middleware. The order of middleware addition determines the order of execution.
 
+> Calling next() is essential for the middleware to pass the update to the rest of the code.
+
+
 ---
+
+## **Conclusion**
 
 Understanding `Context` and working with `Middleware` is pivotal for effective Telegram bot development using Telegraf in Node.js. These components empower developers to handle updates, interact with the Telegram API, and implement necessary processing logic efficiently and systematically.
