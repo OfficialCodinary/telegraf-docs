@@ -12,7 +12,7 @@ There are various ways in which you can format the messages in telegraf
 - Extras
   - parse_mode
 - Libraries
-  - ...?
+  - telegraf/format
 
 ```js
 //Use inbuilt function
