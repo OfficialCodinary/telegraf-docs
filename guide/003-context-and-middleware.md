@@ -1,13 +1,14 @@
-## Context in Telegraf
-
+# Context and Middlewares in Telegraf
+---
+## Context
 ### Overview
-In Telegraf, the `Context` represents the contextual information and utilities available to your bot when handling incoming updates from Telegram. It encapsulates essential data related to the current update, such as the message, user information, and various methods for interacting with the Telegram Bot API.
+In Telegraf, the `Context` represents the contextual information and utilities available to your bot when handling incoming updates from Telegram. It has the essential data related to the current update, such as the message, user information, and various methods for interacting with the Telegram Bot API.
 
 ### Properties
 The `Context` object typically contains the following key properties:
 
 - `update`: This property holds the raw Telegram update received from the user.
-- `telegram`: An instance of the `Telegraf` instance, enabling interaction with the Telegram Bot API using methods like `sendMessage`, `editMessageText`, etc.
+- `telegram`: An instance of the `Telegraf` instance, enabling interaction with the Telegram Bot Api Directly (Raw).
 - `message`: Represents the incoming message (if applicable) and contains information such as text, sender information, chat ID, etc.
 - `from`: Details about the sender of the message.
 - `chat`: Information about the chat where the message originated.
@@ -16,11 +17,11 @@ The `Context` object typically contains the following key properties:
 `Context` provides methods for various interactions and actions within the Telegram bot environment, such as:
 
 - `reply`: Sends a message as a reply to the received message.
-- `replyWithMarkdown` / `replyWithHTML`: Sends a message with Markdown or HTML formatting, respectively.
-- `getChatMembersCount`: Retrieves the count of members in the chat.
+- `replyWithPhoto`: Sends a photot as a reply to recieved message
 - `kickChatMember`: Kicks a specific user from a chat.
 - `leaveChat`: Instructs the bot to leave the current chat.
 
+Much more types of functions are available...
 ### Example Usage
 ```javascript
 bot.on('text', (ctx) => {
